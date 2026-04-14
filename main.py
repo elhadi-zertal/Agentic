@@ -11,8 +11,14 @@ agent = Agent(
         id="llama-3.1-8b-instant",
         api_key=os.environ['GROQ_API_KEY']
     ),
+    
+    instructions=[
+        "Display data using markdown tables",
+        "Only include the markdown table in your response, do not include any other text",
+    ],
+
     tools=[YFinanceTools()],
 )
 
-agent.print_response("What is the stock price of Apple?", stream=True)
+agent.print_response("What are the stock prices of NVIDIA and AMD?", stream=True)
 
