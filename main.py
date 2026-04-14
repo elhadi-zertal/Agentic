@@ -3,6 +3,7 @@ from agno.agent import Agent
 from agno.models.groq import Groq
 from dotenv import load_dotenv
 from agno.tools.yfinance import YFinanceTools
+from agno.tools.reasoning import ReasoningTools
 
 load_dotenv()
 
@@ -13,12 +14,18 @@ agent = Agent(
     ),
     
     instructions=[
-        "Display data using markdown tables",
-        "Only include the markdown table in your response, do not include any other text",
+        "Include sources in your response",
     ],
 
-    tools=[YFinanceTools()],
+    tools=[
+        ReasoningTools(),
+        YFinanceTools()
+    ],
 )
 
-agent.print_response("What are the stock prices of NVIDIA and AMD?", stream=True)
+agent.print_response(
+    "Write a report on AMD?",
+    show_full_reasoning=True,
+    stream_intermediate_steps=True,
+)
 
