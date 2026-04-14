@@ -41,3 +41,9 @@ htmlcov/
 
 # Lock files (optional)
 uv.lock
+
+# Temporary and database files
+tmp/
+*.db
+*.sqlite
+*.sqlite3

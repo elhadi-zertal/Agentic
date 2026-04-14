@@ -8,5 +8,6 @@ dependencies = [
     "agno>=2.5.16",
     "fastapi>=0.135.3",
     "groq>=1.1.2",
+    "sqlalchemy>=2.0.49",
     "yfinance>=1.2.2",
 ]
